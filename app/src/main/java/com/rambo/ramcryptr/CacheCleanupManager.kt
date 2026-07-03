@@ -34,7 +34,8 @@ object CacheCleanupManager {
                 }
 
                 // Final decrypted files
-                name.startsWith("dec_") -> {
+                name.startsWith("dec_") ||
+                name.startsWith("enc_") -> {
 
                     val age = now - file.lastModified()
 

@@ -24,7 +24,10 @@ class FileEncryptActivity : AppCompatActivity() {
     private fun encryptUri(uri: Uri) {
         try {
 
-            val input = File(cacheDir, "temp_input")
+            val input = File(
+                cacheDir,
+                "temp_input_${System.currentTimeMillis()}"
+            )
 
             contentResolver.openInputStream(uri)?.use { ins ->
                 input.outputStream().use { outs ->
@@ -48,6 +51,10 @@ class FileEncryptActivity : AppCompatActivity() {
                 mime,
                 CryptoMasterProvider.getMaster(this)
             )
+
+            input.delete()
+            CacheCleanupManager.scheduleDelete(outFile)
+
 
             val send = Intent(Intent.ACTION_SEND)
             send.type = "*/*"
