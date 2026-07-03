@@ -239,6 +239,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        CacheCleanupManager.cleanup(this)
+
         val channels =
             ChannelStorage.loadChannels(this)
 

@@ -44,7 +44,7 @@ class FileDecryptActivity : AppCompatActivity() {
     private fun decryptUri(uri: Uri) {
         try {
 
-            val enc = File(cacheDir, "temp_enc")
+            val enc = File(cacheDir, "temp_enc_${System.currentTimeMillis()}")
 
             contentResolver.openInputStream(uri)?.use { ins ->
                 enc.outputStream().use { outs ->
@@ -52,7 +52,7 @@ class FileDecryptActivity : AppCompatActivity() {
                 }
             }
 
-            val tempDec = File(cacheDir, "temp_dec")
+            val tempDec = File(cacheDir, "temp_dec_${System.currentTimeMillis()}")
 
             val result = FileCryptoManager.decryptFile(
                 enc,
@@ -64,7 +64,9 @@ class FileDecryptActivity : AppCompatActivity() {
             val mime = result.second
 
             val finalFile = File(cacheDir, "dec_${System.currentTimeMillis()}.$ext")
-            tempDec.renameTo(finalFile)
+            if (!tempDec.renameTo(finalFile)) { throw Exception("Failed to prepare decrypted file") }
+            enc.delete()
+            CacheCleanupManager.scheduleDelete(finalFile)
 
             val fileUri = androidx.core.content.FileProvider.getUriForFile(
                 this,
