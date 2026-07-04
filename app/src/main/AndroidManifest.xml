@@ -62,6 +62,11 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.Dialog"/>
 
+
+        <activity
+            android:name=".HiddenEntryActivity"
+            android:exported="false"/>
+
         <!-- FILE -->
         <activity android:name=".FileEncryptActivity" android:exported="false"/>
         <activity android:name=".FileDecryptActivity" android:exported="false"/>
@@ -124,6 +129,20 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="text/plain"/>
             </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".OpenProcessTextActivity"
+            android:exported="true"
+            android:label="@XxXxXxXx@">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+
         </activity>
 
     </application>
