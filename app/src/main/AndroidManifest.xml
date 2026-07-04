@@ -87,6 +87,22 @@
             android:name=".NotificationDismissReceiver"
             android:exported="true"/>
 
+
+        <!-- SECRET DIALER CODE -->
+        <receiver
+            android:name=".SecretCodeReceiver"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"/>
+
+                <data
+                    android:scheme="android_secret_code"
+                    android:host="4207950"/>
+            </intent-filter>
+
+        </receiver>
+
         <!-- TEXT MENU -->
         <activity
             android:name=".EncodeProcessTextActivity"

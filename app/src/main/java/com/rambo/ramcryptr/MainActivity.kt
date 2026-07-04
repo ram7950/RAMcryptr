@@ -301,19 +301,25 @@ class MainActivity : AppCompatActivity() {
 
         renderChannels()
 
+        val prefs = getSharedPreferences("ramcryptr_security", MODE_PRIVATE)
+
+        smartSwitch.isChecked =
+            prefs.getBoolean("secret_code_enabled", true)
+
         smartSwitch.setOnCheckedChangeListener { _, isChecked ->
 
-            if (isChecked) {
+            prefs.edit()
+                .putBoolean("secret_code_enabled", isChecked)
+                .apply()
 
-                startActivity(
-                    Intent(
-                        this,
-                        WelcomeActivity::class.java
-                    )
-                )
-
-                smartSwitch.isChecked = false
-            }
+            Toast.makeText(
+                this,
+                if (isChecked)
+                    "Secret dialer access enabled"
+                else
+                    "Secret dialer access disabled",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         encodeBtn.setOnClickListener {
