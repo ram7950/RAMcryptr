@@ -5,19 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch
-        android:id="@+id/switchSmartDecode"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable Smart Decode"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
+        <Switch
+            android:id="@+id/switchSmartDecode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enable Smart Decode"/>
 
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:layout_marginBottom="8dp"/>
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_manage"
+            android:contentDescription="Settings"/>
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editText"

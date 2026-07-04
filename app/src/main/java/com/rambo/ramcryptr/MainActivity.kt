@@ -275,7 +275,7 @@ class MainActivity : AppCompatActivity() {
             findViewById<Switch>(R.id.switchSmartDecode)
 
         val btnSettings =
-            findViewById<Button>(R.id.btnSettings)
+            findViewById<ImageButton>(R.id.btnSettings)
 
         val input = findViewById<EditText>(R.id.editText)
         val encodeBtn = findViewById<Button>(R.id.btnEncode)

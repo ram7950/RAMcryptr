@@ -67,6 +67,12 @@
             android:name=".HiddenEntryActivity"
             android:exported="false"/>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"/>
+
+
+
         <!-- FILE -->
         <activity android:name=".FileEncryptActivity" android:exported="false"/>
         <activity android:name=".FileDecryptActivity" android:exported="false"/>
