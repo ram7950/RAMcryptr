@@ -11,6 +11,14 @@
         android:layout_height="wrap_content"
         android:text="Enable Smart Decode"/>
 
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_marginBottom="8dp"/>
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"

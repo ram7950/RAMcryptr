@@ -274,6 +274,9 @@ class MainActivity : AppCompatActivity() {
         val smartSwitch =
             findViewById<Switch>(R.id.switchSmartDecode)
 
+        val btnSettings =
+            findViewById<Button>(R.id.btnSettings)
+
         val input = findViewById<EditText>(R.id.editText)
         val encodeBtn = findViewById<Button>(R.id.btnEncode)
         val decodeBtn = findViewById<Button>(R.id.btnDecode)
@@ -320,6 +323,18 @@ class MainActivity : AppCompatActivity() {
                     "Secret dialer access disabled",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+
+
+        btnSettings.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    SettingsActivity::class.java
+                )
+            )
+
         }
 
         encodeBtn.setOnClickListener {
