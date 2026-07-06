@@ -161,6 +161,17 @@ class WelcomeActivity : AppCompatActivity() {
             ).animate()
                 .alpha(0f)
                 .setDuration(1400)
+                .withEndAction {
+
+                    findViewById<android.view.View>(
+                        R.id.introOverlay
+                    ).visibility =
+                        android.view.View.GONE
+
+                    btnHelp.bringToFront()
+                    btnHelp.invalidate()
+
+                }
                 .start()
 
         }, 7750)
