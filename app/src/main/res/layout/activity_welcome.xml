@@ -99,6 +99,17 @@
         android:layout_marginTop="210dp"
         android:alpha="0"/>
 
+
+    <ImageButton
+        android:id="@+id/btnHelp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="12dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_help"
+        android:contentDescription="Help"/>
+
 </FrameLayout>
 
 </FrameLayout>

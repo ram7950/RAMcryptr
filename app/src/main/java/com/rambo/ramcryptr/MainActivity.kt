@@ -304,23 +304,15 @@ class MainActivity : AppCompatActivity() {
 
         renderChannels()
 
-        val prefs = getSharedPreferences("ramcryptr_security", MODE_PRIVATE)
+        smartSwitch.isChecked = false
 
-        smartSwitch.isChecked =
-            prefs.getBoolean("secret_code_enabled", true)
+        smartSwitch.setOnCheckedChangeListener { _, _ ->
 
-        smartSwitch.setOnCheckedChangeListener { _, isChecked ->
-
-            prefs.edit()
-                .putBoolean("secret_code_enabled", isChecked)
-                .apply()
+            smartSwitch.isChecked = false
 
             Toast.makeText(
                 this,
-                if (isChecked)
-                    "Secret dialer access enabled"
-                else
-                    "Secret dialer access disabled",
+                "User Guide coming soon.",
                 Toast.LENGTH_SHORT
             ).show()
         }

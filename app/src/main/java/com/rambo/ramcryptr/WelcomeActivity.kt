@@ -1,8 +1,10 @@
 package com.rambo.ramcryptr
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.media3.common.MediaItem
@@ -50,6 +52,29 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_welcome)
+
+
+        val btnHelp =
+            findViewById<ImageButton>(R.id.btnHelp)
+
+        btnHelp.setOnClickListener {
+
+            AlertDialog.Builder(this)
+                .setTitle("Before You Begin")
+                .setMessage(
+                    "RAMcryptr use karne se pehle ek baat samajhna zaroori hai.\n\n" +
+                    "Ye app Secure Communication Channels par kaam karti hai. Jab tak aap kisi valid Secure Channel se connect nahi hote, tab tak Encryption aur Decryption jaise features available nahi honge.\n\n" +
+                    "Shuru karne ke liye aapke paas do options hain:\n\n" +
+                    "• Initiate Communication\nIs option ka use karke aap ek naya Secure Communication Channel bana sakte hain.\n\n" +
+                    "YA\n\n" +
+                    "• Patch In\nAgar kisi ne pehle se Secure Communication Channel banaya hua hai, to aap us Channel me connect (Patch In) ho sakte hain.\n\n" +
+                    "Jaise hi koi valid Channel create ya join ho jayega, RAMcryptr automatically Main Screen open kar dega aur saare features use karne ke liye available ho jayenge.\n\n" +
+                    "Agar aap pehli baar RAMcryptr use kar rahe hain, to pehle 'Initiate Communication' select karna recommend kiya jata hai."
+                )
+                .setPositiveButton("Samajh Gaya", null)
+                .show()
+        }
+
 
         val bgVideo =
             findViewById<PlayerView>(R.id.bgVideo)
